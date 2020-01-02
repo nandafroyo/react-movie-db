@@ -19,15 +19,21 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        this.setState({
-            loading: true
-        });
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-        this.fetchItems(endpoint);
+        if (localStorage.getItem('HomeState')) {
+            const state = JSON.parse(localStorage.getItem('HomeState'));
+            this.setState({
+                ...state
+            });
+        } else {
+            this.setState({
+                loading: true
+            });
+            const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+            this.fetchItems(endpoint);
+        }
     }
 
     searchItems = (searchTerm) => {
-        console.log(searchTerm);
         let endpoint = '';
         this.setState({
             movies: [],
@@ -67,9 +73,12 @@ class Home extends Component{
                 loading: false,
                 currentPage: result.page,
                 totalPages: result.total_pages
+            }, () => {
+                if (this.state.searchTerm === "") {
+                    localStorage.setItem('HomeState', JSON.stringify(this.state));
+                }
             })
         })
-        console.log(endpoint);
     }
 
     render(){

@@ -3,6 +3,7 @@ import { IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE } from '../../../config';
 import FontAwesome from 'react-fontawesome';
 import MovieThumb from '../MovieThumb/MovieThumb';
 import './MovieInfo.css';
+import PropTypes from 'prop-types';
 
 const MovieInfo = (props) => {
     return(
@@ -14,7 +15,7 @@ const MovieInfo = (props) => {
             <div className="rmdb-movieinfo-content">
                 <div className="rmdb-movieinfo-thumb">
                     <MovieThumb 
-                        image={props.movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}` : './images/no_image.jpg'}
+                        image={props.movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}` : '/images/no_image.jpg'}
                         clickable={false}
                     />
                 </div>
@@ -37,6 +38,11 @@ const MovieInfo = (props) => {
             
         </div>
     )
+}
+
+MovieInfo.propTypes = {
+    movie: PropTypes.object,
+    directors: PropTypes.array
 }
 
 export default MovieInfo;
