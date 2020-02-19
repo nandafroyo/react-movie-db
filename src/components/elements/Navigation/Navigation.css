@@ -1,13 +1,12 @@
 .rmdb-navigation {
   width: 100%;
-  height: 50px;
+  height: auto;
   background: #353535;
   color: #fff;
   position: relative;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   margin: 0;
-  padding-top: 10px;
 }
 
 .rmdb-navigation-content {
@@ -20,9 +19,13 @@
 .rmdb-navigation-content p {
   font-family: 'Abel', sans-serif;
   font-size: 22px;
-  float: left;
+  display: inline;
   color: #fff;
   padding-right: 10px;
   text-decoration: none;
   margin: 0;
+}
+
+.rmdb-navigation-content a {
+  text-decoration: none;
 }

@@ -10,7 +10,9 @@ const Header = () => {
                 <Link to="/">
                     <img className="rmdb-logo" src="/images/reactMovie_logo.png" alt="rmdb-logo" />
                 </Link>
-                <img className="rmdb-tmdb-logo" src="/images/tmdb_logo.png" alt="rmdb-logo" />
+                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
+                    <img className="rmdb-tmdb-logo" src="/images/tmdb_logo.png" alt="rmdb-logo" />
+                </a>
             </div>
         </div>
     )
